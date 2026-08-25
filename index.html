@@ -289,6 +289,22 @@
   <div id="modalRoot"></div><div id="toast" class="toast hidden"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<div class="wa-float-wrap" id="waFloatWrap">
+  <div class="wa-float-panel hidden" id="waFloatPanel">
+    <a class="wa-float-link" href="https://wa.me/6281936190209?text=Halo%20Admin%201%20Fara%20Kost%2C%20saya%20ingin%20bertanya%20tentang%20ketersediaan%20kamar." target="_blank" rel="noopener">
+      <span class="wa-float-copy"><small>CHAT ADMIN 1</small><b>0819 3619 0209</b></span>
+      <span class="wa-float-badge">WA</span>
+    </a>
+    <a class="wa-float-link" href="https://wa.me/628117199210?text=Halo%20Admin%202%20Fara%20Kost%2C%20saya%20ingin%20bertanya%20tentang%20ketersediaan%20kamar." target="_blank" rel="noopener">
+      <span class="wa-float-copy"><small>CHAT ADMIN 2</small><b>0811 7199 210</b></span>
+      <span class="wa-float-badge">WA</span>
+    </a>
+  </div>
+  <div class="wa-float-hint" id="waFloatHint">Chat Admin</div>
+  <button class="wa-float-main" id="waFloatBtn" type="button" aria-label="Buka chat admin WhatsApp" onclick="toggleWaFloat()">☎</button>
+</div>
+
 <script>
 const SUPABASE_URL='https://jxkxxtrsdmgghzzfggbp.supabase.co';
 const SUPABASE_KEY='sb_publishable_ynfQ3aBpWl-7MkDJ6hR01w_AIEpouf1';
@@ -410,6 +426,20 @@ function renderTransactions(){const root=$('tab-transactions'),data=transactionD
 function renderReports(){const root=$('tab-reports'),total=db.payments.reduce((a,b)=>a+b.amount,0),completed=db.stays.filter(s=>s.status==='completed'),active=db.stays.filter(s=>s.status==='active'),byRoom=db.rooms.map(r=>({r,days:db.stays.filter(s=>s.roomId===r.id).reduce((a,b)=>a+b.days,0),rev:db.payments.filter(p=>db.stays.find(s=>s.id===p.stayId)?.roomId===r.id).reduce((a,b)=>a+b.amount,0)}));root.innerHTML=`<div class="stats"><div class="stat"><div class="stat-label">Pendapatan</div><div class="stat-value">${shortMoney(total)}</div><div class="stat-sub">total tercatat</div></div><div class="stat"><div class="stat-label">Stay aktif</div><div class="stat-value">${active.length}</div><div class="stat-sub">saat ini</div></div><div class="stat"><div class="stat-label">Stay selesai</div><div class="stat-value">${completed.length}</div><div class="stat-sub">seluruh histori</div></div><div class="stat"><div class="stat-label">Booking pending</div><div class="stat-value">${db.bookings.filter(b=>b.status==='pending').length}</div><div class="stat-sub">perlu tindakan</div></div></div><div class="panel"><h2>Kinerja per kamar</h2><div class="desktop-table"><table class="table"><thead><tr><th>Kamar</th><th>Tipe</th><th>Hari terjual</th><th>Pendapatan</th></tr></thead><tbody>${byRoom.map(x=>`<tr><td><b>${x.r.code}</b></td><td>${roomType(x.r.typeId).name}</td><td>${x.days} hari</td><td><b>${money(x.rev)}</b></td></tr>`).join('')}</tbody></table></div><div class="mobile-list">${byRoom.map(x=>`<article class="list-card"><div class="list-card-top"><div><h3>${x.r.code} • ${roomType(x.r.typeId).name}</h3><p>${x.days} hari terjual</p></div><strong>${money(x.rev)}</strong></div></article>`).join('')}</div></div>`}
 function renderSettings(){const root=$('tab-settings');root.innerHTML=`<div class="panel"><h2>Tarif kamar</h2><div class="form-grid">${db.roomTypes.map(t=>`<div class="field"><label>${t.name.toUpperCase()}</label><input id="price-${t.id}" type="number" value="${t.price}"></div>`).join('')}<div class="field"><label>GRACE PERIOD (MENIT)</label><input id="grace" type="number" value="${db.settings.graceMinutes}"></div><div class="field span4"><button class="btn btn-primary" onclick="saveSettings()">Simpan pengaturan</button></div></div></div><div class="panel"><h2>Akun</h2><p class="muted">Login sebagai <b>${escapeHtml(currentProfile?.full_name||'Owner')}</b> • ${escapeHtml(currentProfile?.role||'')}</p><button class="btn btn-ghost btn-block" onclick="switchTab('reports')">↗ Buka laporan</button><button class="btn btn-ghost btn-block" style="margin-top:8px" onclick="location.hash=''">← Lihat landing page</button><button class="btn btn-danger btn-block" style="margin-top:8px" onclick="adminLogout()">Keluar dari admin</button></div>`}
 async function saveSettings(){for(const t of db.roomTypes){const price=Number($('price-'+t.id).value);const {error}=await sb.from('room_types').update({price_per_24h:price}).eq('id',t.id);if(error){toast('Gagal simpan harga.');return}}const grace=Number($('grace').value);const {error}=await sb.from('settings').upsert({key:'grace_period_minutes',value:grace,updated_at:new Date().toISOString()},{onConflict:'key'});if(error){toast('Gagal simpan pengaturan.');return}await loadAdminData();toast('Pengaturan tersimpan.')}
+
+
+function toggleWaFloat(force){
+  const panel=$('waFloatPanel'), hint=$('waFloatHint');
+  if(!panel)return;
+  const open=typeof force==='boolean'?force:panel.classList.contains('hidden');
+  panel.classList.toggle('hidden',!open);
+  if(hint)hint.style.display=open?'none':'block';
+}
+document.addEventListener('click',e=>{
+  const wrap=$('waFloatWrap'), panel=$('waFloatPanel');
+  if(!wrap||!panel)return;
+  if(!wrap.contains(e.target)&&!panel.classList.contains('hidden'))toggleWaFloat(false);
+});
 
 function updateDateLabels(){const s=new Intl.DateTimeFormat('id-ID',{weekday:'long',day:'numeric',month:'short',timeZone:'Asia/Jakarta'}).format(new Date()),d=new Intl.DateTimeFormat('id-ID',{day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Jakarta'}).format(new Date());if($('adminDate'))$('adminDate').textContent=s;if($('mobileDate'))$('mobileDate').innerHTML=d.replace(' ','<br>')}
 async function route(){const admin=location.hash==='#admin'||location.hash.startsWith('#admin/');$('publicView').classList.toggle('hidden',admin);$('adminView').classList.toggle('hidden',!admin);const waWrap=$('waFloatWrap');if(waWrap)waWrap.style.display=admin?'none':'flex';if(admin){updateDateLabels();const ok=await ensureAdmin();if(ok)switchTab(currentTab)}else{closeModal();toggleWaFloat(false);renderRoomTypes();const e=$('checkDate');if(e)e.value=e.value||todayISO()}}
