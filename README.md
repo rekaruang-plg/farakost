@@ -1,4 +1,4 @@
-# Fara Kost V1 Production ok
+# Fara Kost V1 Production
 
 Landing page + sistem operasional Fara Kost yang terhubung ke Supabase.
 
