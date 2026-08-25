@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#153d33" />
   <title>Fara Kost — Kost Harian 24 Jam</title>
+  <meta name="description" content="Fara Kost, kost harian dengan sistem 24 jam sejak check-in. Tersedia dispenser minum, WC shower dengan air PDAM, sabun, dan parkir gratis. Bukan kost bebas." />
   <style>
     :root{
       --bg:#f7f6f1;--surface:#ffffff;--surface-2:#f1f4ef;--ink:#16221e;--muted:#6e7772;
@@ -31,6 +32,9 @@
     .booking-shell{background:var(--sand-2);border-radius:32px;padding:32px}.booking-card{background:#fff;border-radius:25px;padding:22px;box-shadow:var(--shadow-sm)}.booking-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}.booking-title h3{font-size:22px;margin:0}.booking-title span{font-size:12px;color:var(--muted)}.search-grid{display:grid;grid-template-columns:1fr .8fr .9fr auto;gap:10px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-size:11px;font-weight:900;letter-spacing:.055em;color:#66706b}.field input,.field select,.field textarea{width:100%;min-height:46px;border:1px solid #d9ddd7;background:#fff;border-radius:13px;padding:0 13px;outline:none;color:var(--ink)}.field textarea{padding-top:12px;min-height:90px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:#709787;box-shadow:0 0 0 4px rgba(38,92,76,.08)}.availability{margin-top:14px}.availability-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 2px}.availability-list{display:grid;gap:9px}.availability-item{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid var(--line);border-radius:17px;padding:14px 15px;background:#fff}.availability-item strong{font-size:15px}.availability-price{font-weight:950;color:var(--brand)}
     .benefit-grid{display:grid;grid-template-columns:1.1fr .9fr .9fr;gap:16px}.benefit{border-radius:25px;padding:25px;background:#fff;border:1px solid var(--line)}.benefit.primary{background:var(--brand);color:#fff;border-color:var(--brand)}.benefit-icon{font-size:24px;margin-bottom:28px}.benefit h3{font-size:20px;margin:0 0 8px}.benefit p{line-height:1.65;margin:0;color:var(--muted)}.benefit.primary p{color:rgba(255,255,255,.7)}
     .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.step{padding:20px;border-radius:22px;background:#fff;border:1px solid var(--line)}.step-num{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:var(--brand-soft);color:var(--brand);font-weight:950;margin-bottom:26px}.step h4{margin:0 0 7px;font-size:17px}.step p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}.cta{border-radius:32px;background:linear-gradient(135deg,#e9dfca,#f4eee2);padding:45px;display:flex;justify-content:space-between;gap:28px;align-items:center}.cta h2{margin:0 0 8px}.cta p{margin:0;color:#5d625d}.footer{padding:34px 0 44px;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;border-top:1px solid var(--line);padding-top:26px}
+    .facility-wrap{display:grid;grid-template-columns:.94fr 1.06fr;gap:18px;align-items:stretch}.facility-intro{background:var(--brand);color:#fff;border-radius:30px;padding:34px;position:relative;overflow:hidden;min-height:100%}.facility-intro:after{content:"";position:absolute;width:250px;height:250px;border-radius:50%;right:-100px;bottom:-130px;background:rgba(255,255,255,.07)}.facility-intro .section-kicker{color:#d8e8e0}.facility-intro h2{margin:9px 0 16px}.facility-intro p{color:rgba(255,255,255,.72);line-height:1.75;margin:0;max-width:560px}.facility-note{margin-top:25px;padding:16px 17px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:rgba(255,255,255,.08);position:relative;z-index:1}.facility-note strong{display:block;margin-bottom:4px}.facility-note span{font-size:13px;color:rgba(255,255,255,.68);line-height:1.55}.facility-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.facility-card{background:#fff;border:1px solid var(--line);border-radius:23px;padding:22px;box-shadow:var(--shadow-sm)}.facility-card .facility-icon{width:43px;height:43px;border-radius:14px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-size:20px;margin-bottom:22px}.facility-card h3{font-size:18px;margin:0 0 7px}.facility-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}.policy-shell{background:#fff;border:1px solid var(--line);border-radius:30px;padding:30px;display:grid;grid-template-columns:.85fr 1.15fr;gap:24px;align-items:start;box-shadow:var(--shadow-sm)}.policy-callout{background:var(--sand-2);border-radius:23px;padding:25px}.policy-callout .policy-badge{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #e5dcc8;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:900;color:var(--brand)}.policy-callout h3{font-size:26px;letter-spacing:-.035em;margin:15px 0 10px}.policy-callout p{margin:0;color:#64675f;line-height:1.7;font-size:14px}.policy-list{display:grid;gap:10px}.policy-item{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;padding:15px;border:1px solid var(--line);border-radius:18px;background:#fbfcfa}.policy-item .check{width:36px;height:36px;border-radius:12px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-weight:950}.policy-item strong{display:block;font-size:14px;margin:2px 0 4px}.policy-item span{display:block;color:var(--muted);font-size:12px;line-height:1.55}.contact-shell{border-radius:32px;background:linear-gradient(135deg,#173e34,#285846);color:#fff;padding:38px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;box-shadow:var(--shadow)}.contact-shell .section-kicker{color:#cfe2da}.contact-shell h2{margin:6px 0 9px}.contact-shell p{margin:0;color:rgba(255,255,255,.72);line-height:1.65;max-width:660px}.admin-contact-list{display:grid;gap:9px;min-width:285px}.wa-btn{min-height:54px;border-radius:16px;background:#fff;color:var(--brand);padding:0 17px;display:flex;align-items:center;justify-content:space-between;gap:18px;text-decoration:none;font-weight:900;box-shadow:0 9px 26px rgba(0,0,0,.12)}.wa-btn small{display:block;font-weight:700;color:#6c7772;font-size:10px;margin-bottom:2px;letter-spacing:.04em}.wa-btn b{font-size:15px}.wa-arrow{font-size:18px}.footer-contact{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}.footer-contact a{text-decoration:none;font-weight:800;color:var(--brand)}
+    @media(max-width:820px){.facility-wrap,.policy-shell,.contact-shell{grid-template-columns:1fr}.facility-grid{grid-template-columns:1fr 1fr}.facility-intro{padding:26px}.policy-shell{padding:18px}.contact-shell{padding:25px}.admin-contact-list{min-width:0;width:100%}.footer-contact{justify-content:flex-start}}
+    @media(max-width:560px){.facility-grid{grid-template-columns:1fr}.facility-card{padding:18px}.facility-card .facility-icon{margin-bottom:16px}.contact-shell{border-radius:25px}.wa-btn{width:100%}}
 
     /* ADMIN */
     #adminView{background:#f4f5f1;min-height:100vh}.admin-layout{display:grid;grid-template-columns:244px minmax(0,1fr);min-height:100vh}.sidebar{height:100vh;position:sticky;top:0;background:var(--brand);color:#fff;padding:20px 14px;display:flex;flex-direction:column}.sidebar-brand{display:flex;align-items:center;gap:11px;padding:6px 8px 24px;font-weight:950;letter-spacing:.04em}.sidebar-brand .logo-mark{background:#fff;color:var(--brand)}.sidebtn{width:100%;min-height:46px;border:0;background:transparent;color:rgba(255,255,255,.68);display:flex;align-items:center;gap:12px;border-radius:14px;padding:0 13px;text-align:left;font-weight:760;margin:2px 0}.sidebtn .nav-ico{font-size:17px;width:20px;text-align:center}.sidebtn.active,.sidebtn:hover{background:rgba(255,255,255,.11);color:#fff}.side-spacer{flex:1}.admin-main{min-width:0;padding:24px 28px 46px;max-width:1420px;width:100%;margin:0 auto}.admin-topbar{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:22px}.admin-title-wrap h1{font-size:29px;letter-spacing:-.035em;margin:0}.admin-title-wrap p{color:var(--muted);margin:5px 0 0;font-size:13px}.admin-top-actions{display:flex;gap:8px}.admin-date{padding:10px 13px;border-radius:13px;background:#fff;border:1px solid var(--line);font-size:13px;color:#52605a;font-weight:750}
@@ -91,7 +95,7 @@
       <div class="shell public-nav">
         <div class="logo-lockup"><span class="logo-mark">FK</span><span>FARA KOST</span></div>
         <div class="public-links">
-          <a href="#rooms">Kamar</a><a href="#booking">Booking</a><a href="#how">Cara Menginap</a>
+          <a href="#rooms">Kamar</a><a href="#facilities">Fasilitas</a><a href="#booking">Booking</a><a href="#contact">Kontak</a>
           <button class="btn btn-primary btn-sm" onclick="location.hash='admin'">Admin</button>
         </div>
       </div>
@@ -102,8 +106,8 @@
         <section class="hero">
           <div class="hero-copy">
             <span class="eyebrow">● KOST HARIAN • 24 JAM PENUH</span>
-            <h1>Check-in bebas.<br>24 jam milik kamu.</h1>
-            <p>Fara Kost menghitung waktu menginap tepat 24 jam sejak kamu masuk. Tidak perlu buru-buru checkout jam 12 siang.</p>
+            <h1>Check-in fleksibel.<br>24 jam milik kamu.</h1>
+            <p>Fara Kost menawarkan kost harian dengan sistem 24 jam penuh sejak waktu check-in. Fasilitas sederhana, aturan menginap jelas, dan admin siap membantu konfirmasi kamar maupun parkir mobil.</p>
             <div class="hero-actions">
               <a class="btn btn-white" href="#booking">Cek kamar tersedia</a>
               <a class="btn btn-ghost" href="#rooms">Lihat pilihan kamar</a>
@@ -112,6 +116,7 @@
               <div class="trust-item"><strong>Rp80rb</strong><span>mulai / 24 jam</span></div>
               <div class="trust-item"><strong>5 Kamar</strong><span>stok aktual</span></div>
               <div class="trust-item"><strong>24 Jam</strong><span>dari waktu check-in</span></div>
+              <div class="trust-item"><strong>Tertib</strong><span>bukan kost bebas</span></div>
             </div>
           </div>
           <div class="hero-visual">
@@ -134,9 +139,42 @@
         </div>
       </section>
 
+      <section id="facilities" class="section compact">
+        <div class="shell facility-wrap">
+          <div class="facility-intro">
+            <div class="section-kicker">Fasilitas Fara Kost</div>
+            <h2>Sederhana, jelas, dan nyaman untuk kebutuhan harian.</h2>
+            <p>Fasilitas disiapkan untuk kebutuhan dasar selama menginap. Supaya tidak ada salah ekspektasi, detail fasilitas dan perlengkapan yang tersedia kami jelaskan sejak awal.</p>
+            <div class="facility-note"><strong>Informasi penting</strong><span>Handuk tidak disediakan. Di area WC tersedia sabun untuk digunakan selama menginap.</span></div>
+          </div>
+          <div class="facility-grid">
+            <article class="facility-card"><div class="facility-icon">◉</div><h3>Dispenser minum</h3><p>Disediakan dispenser minum yang dapat digunakan tamu selama menginap.</p></article>
+            <article class="facility-card"><div class="facility-icon">♨</div><h3>WC dengan shower</h3><p>Kamar mandi menggunakan shower dengan sumber air PDAM untuk kebutuhan mandi dan kebersihan.</p></article>
+            <article class="facility-card"><div class="facility-icon">✦</div><h3>Sabun tersedia</h3><p>Sabun tersedia di WC. Tamu disarankan membawa perlengkapan pribadi lainnya sesuai kebutuhan.</p></article>
+            <article class="facility-card"><div class="facility-icon">P</div><h3>Parkir gratis</h3><p>Parkir tidak dikenakan biaya. Khusus tamu yang membawa mobil, mohon konfirmasi ke admin terlebih dahulu sebelum datang.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section compact">
+        <div class="shell policy-shell">
+          <div class="policy-callout">
+            <span class="policy-badge">✓ KETENTUAN MENGINAP</span>
+            <h3>Fara Kost bukan kost bebas.</h3>
+            <p>Kami menjaga kenyamanan dan ketertiban bersama. Setiap tamu yang menginap wajib mengikuti ketentuan Fara Kost serta arahan admin selama berada di area kost.</p>
+          </div>
+          <div class="policy-list">
+            <div class="policy-item"><div class="check">1</div><div><strong>Reservasi dikonfirmasi admin</strong><span>Pengajuan booking belum dianggap final sampai kamar dikonfirmasi oleh admin.</span></div></div>
+            <div class="policy-item"><div class="check">2</div><div><strong>Sistem menginap 24 jam</strong><span>Waktu checkout mengikuti jam check-in aktual. Contoh masuk 15.30, checkout keesokan harinya pukul 15.30.</span></div></div>
+            <div class="policy-item"><div class="check">3</div><div><strong>Bawa handuk pribadi</strong><span>Fara Kost tidak menyediakan handuk. Sabun tersedia di WC, sedangkan perlengkapan pribadi lain sebaiknya dibawa sendiri.</span></div></div>
+            <div class="policy-item"><div class="check">4</div><div><strong>Mobil wajib konfirmasi</strong><span>Parkir gratis, namun ketersediaan area untuk mobil perlu dikonfirmasi kepada admin terlebih dahulu.</span></div></div>
+          </div>
+        </div>
+      </section>
+
       <section id="booking" class="section compact">
         <div class="shell booking-shell">
-          <div class="section-head"><div><div class="section-kicker">Cek jadwal</div><h2>Pastikan kamar tersedia.</h2></div><p class="section-lead">Masukkan kapan kamu datang. Sistem mengecek bentrok booking berdasarkan tanggal dan jam, bukan hanya tanggal.</p></div>
+          <div class="section-head"><div><div class="section-kicker">Cek jadwal</div><h2>Pastikan kamar tersedia.</h2></div><p class="section-lead">Masukkan rencana kedatangan kamu. Sistem mengecek ketersediaan berdasarkan tanggal dan jam. Setelah pengajuan masuk, admin akan melakukan konfirmasi final.</p></div>
           <div class="booking-card">
             <div class="booking-title"><h3>Rencana menginap</h3><span>Checkout otomatis dihitung</span></div>
             <div class="search-grid">
@@ -173,12 +211,26 @@
         </div>
       </section>
 
+      <section id="contact" class="section compact">
+        <div class="shell contact-shell">
+          <div>
+            <div class="section-kicker">Hubungi Admin</div>
+            <h2>Butuh tanya kamar atau bawa mobil?</h2>
+            <p>Hubungi salah satu nomor admin di bawah. Untuk parkir mobil, mohon konfirmasi sebelum datang agar admin dapat memastikan kondisi area parkir.</p>
+          </div>
+          <div class="admin-contact-list">
+            <a class="wa-btn" href="https://wa.me/6281936190209?text=Halo%20Admin%20Fara%20Kost%2C%20saya%20ingin%20bertanya%20tentang%20ketersediaan%20kamar." target="_blank" rel="noopener"><span><small>WHATSAPP ADMIN 1</small><b>0819 3619 0209</b></span><span class="wa-arrow">›</span></a>
+            <a class="wa-btn" href="https://wa.me/628117199210?text=Halo%20Admin%20Fara%20Kost%2C%20saya%20ingin%20bertanya%20tentang%20ketersediaan%20kamar." target="_blank" rel="noopener"><span><small>WHATSAPP ADMIN 2</small><b>0811 7199 210</b></span><span class="wa-arrow">›</span></a>
+          </div>
+        </div>
+      </section>
+
       <section class="section">
-        <div class="shell cta"><div><div class="section-kicker">Fara Kost</div><h2>Sudah tahu kapan mau datang?</h2><p>Cek ketersediaan kamar dulu agar waktunya aman.</p></div><a href="#booking" class="btn btn-primary">Cek sekarang</a></div>
+        <div class="shell cta"><div><div class="section-kicker">Fara Kost</div><h2>Sudah tahu kapan mau datang?</h2><p>Cek ketersediaan kamar, ajukan booking, lalu tunggu konfirmasi dari admin.</p></div><a href="#booking" class="btn btn-primary">Cek sekarang</a></div>
       </section>
     </main>
 
-    <footer class="footer"><div class="shell footer-inner"><div class="logo-lockup"><span class="logo-mark">FK</span><span>FARA KOST</span></div><div>Kost harian • sistem 24 jam sejak check-in</div></div></footer>
+    <footer class="footer"><div class="shell footer-inner"><div><div class="logo-lockup"><span class="logo-mark">FK</span><span>FARA KOST</span></div><div style="margin-top:8px;font-size:12px">Kost harian • 24 jam sejak check-in • bukan kost bebas</div></div><div class="footer-contact"><a href="https://wa.me/6281936190209" target="_blank" rel="noopener">0819 3619 0209</a><a href="https://wa.me/628117199210" target="_blank" rel="noopener">0811 7199 210</a></div></div></footer>
   </div>
 
   <div id="adminView" class="hidden">
